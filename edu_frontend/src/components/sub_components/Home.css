@@ -1,0 +1,10 @@
+.home_container .home_container_content{
+    height: 100dvh;
+    display: flex;
+    position: relative;
+}
+
+.home_container .home_container_content .contents {
+    flex: 1;
+}
+
