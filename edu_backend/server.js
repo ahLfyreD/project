@@ -28,9 +28,7 @@ app.use(express.urlencoded({ extended: false}));
 // built-in middleware for json
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send("Hello World")
-})
+app.use('/data', require('./routes/api/data')); 
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB');
