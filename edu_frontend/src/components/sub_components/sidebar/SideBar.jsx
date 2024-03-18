@@ -15,7 +15,8 @@ const SideBar = ({ mode }) => {
             style={mode ? { background: '#161618' } : { background: '' }}
         >
             <div className='navbar_container'>
-                <div className='navbar_header'>
+                <div className='navbar_header'
+                style={mode ? { background: '#161618' } : { background: 'white' }}>
                     <Link to='/'>
                         <img className='image' src={Logo} alt="" />
                     </Link>
@@ -27,7 +28,7 @@ const SideBar = ({ mode }) => {
                                 <li
                                     key={index}
                                     // className="nav-item d-block"
-                                    style={{ marginBottom: 10 }}
+                                    style={{ marginBottom: 20 }}
                                 >
                                     <NavLink
                                         to={items.path}
