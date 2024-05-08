@@ -8,8 +8,10 @@ const CoursePage = () => {
   const [courseData, setCourseData] = useState([]);
   const [access, setAccess] = useState('')
 
+
   useEffect(() => {
     const fetchData = async () => {
+      
       const { data } = await axios.get('https://keyringproject-data.onrender.com/data');
       setCourseData(data)
 
