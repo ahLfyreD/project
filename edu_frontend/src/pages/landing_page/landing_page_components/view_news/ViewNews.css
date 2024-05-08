@@ -1,0 +1,40 @@
+.asderf {
+  position: relative;
+  height: fit-content;
+  padding: 10px 30px;
+  display: flex;
+  background: white;
+}
+
+.asderf .landing_Page_news_container {
+  position: relative;
+  width: 100%;
+  max-width: 100rem;
+  margin: 0 auto;
+}
+
+.asderf .landing_Page_news_container .row {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  /* justify-content: space-between; */
+}
+
+
+.asderf .landing_Page_news_container .row .text_block {
+  width: 100%;
+  max-width: 700px;
+}
+
+.asderf .landing_Page_news_container .row .text_block h1 {
+  font-size: 4rem;
+}
+
+.asderf .landing_Page_news_container .row .text_block h1 span{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.asderf .landing_Page_news_container .row .text_block h1 span:hover{
+  color: #2ee297;
+}

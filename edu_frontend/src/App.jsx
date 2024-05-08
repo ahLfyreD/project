@@ -1,15 +1,14 @@
 import { Suspense } from 'react';
-
-import LandingPage from './components/landing_page/LandingPage';
-import Home from './components/sub_components/Home';
-import PageOne from './components/sub_components/pages/PageOne';
-import PageTwo from './components/sub_components/pages/PageTwo';
-import PageThree from './components/sub_components/pages/PageThree';
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import './components/sub_components/Home.css';
+import LandingPage from './pages/landing_page/LandingPage';
+import Home from './pages/home_page/Home';
+import CoursePage from './pages/course_page/CoursePage';
+import Register from './pages/register_page/Register';
+import CourseContentPage from './pages/course_content_page/CourseContentPage';
+
 import './App.css';
+
 
 function App() {
 
@@ -17,11 +16,11 @@ function App() {
     <Suspense>
       <Router>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/home" element={<Home />} >
-            <Route path="/home/pageone" element={<PageOne />} />
-            <Route path="/home/pagetwo" element={<PageTwo />} />
-            <Route path="/home/pagethree" element={<PageThree />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Home />} >
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/courses" element={<CoursePage />} />
+            <Route path="/course/:id" element={<CourseContentPage />} />
           </Route>
         </Routes>
       </Router>

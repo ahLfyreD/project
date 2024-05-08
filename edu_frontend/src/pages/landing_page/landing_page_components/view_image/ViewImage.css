@@ -1,0 +1,27 @@
+.asde {
+  background-image: url(https://assets-global.website-files.com/65df8e71bab45b70f5433fba/65eb8c32d64b2a9d9cb33b8e_Frame%2048095923.jpg);
+  height: 600px;
+  padding: 10px 30px;
+  display: flex;
+  position: relative;
+}
+
+.asde .text_container {
+  /* position: relative; */
+  width: 100%;
+  max-width: 100rem;
+  margin: 0 auto;
+}
+
+.asde .text_container h1 {
+  font-size: 5rem;
+}
+
+.asde .text_container h2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 2.5rem;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+}

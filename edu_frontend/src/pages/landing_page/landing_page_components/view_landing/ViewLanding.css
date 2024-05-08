@@ -1,0 +1,36 @@
+.landing_body_content h1 {
+  font-size: 5rem;
+  line-height: 0.3;
+  font-weight: 500;
+  color: #0f2830;
+}
+
+.landing_body_content h1 span{
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+}
+
+.landing_body_content p {
+  text-align: center;
+}
+
+.landing_body_content {
+  position: relative;
+  background: white;
+  width: 100%;
+  max-width: 100rem;
+  height: 550px;
+  margin: 0 auto;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing_body_content .landing_body_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

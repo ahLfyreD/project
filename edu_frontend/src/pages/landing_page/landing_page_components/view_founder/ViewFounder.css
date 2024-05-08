@@ -1,0 +1,72 @@
+.asdef {
+    position: relative;
+    height: fit-content;
+    padding: 10px 30px;
+    display: flex;
+    background: white;
+  }
+  
+  .asdef .founder_container {
+    position: relative;
+    width: 100%;
+    max-width: 100rem;
+    margin: 0 auto;
+    /* border-bottom: 1px solid #e6e6e6; */
+  }
+  
+  .asdef .founder_container .row{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  
+  .asdef .founder_container .row .col{
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    height: 300px;
+    padding: 10px;
+    border: 1px solid #e6e6e6;
+  }
+
+  .asdef .founder_container .row .col .founder_image{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    background-image: url(https://assets-global.website-files.com/65e63f08ee88b5d3840387d6/65e64a3879a5c7b08b117d5b_Alex.jpg);
+    background-position: center;
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    border-radius: 100%;
+  }
+
+  .asdef .founder_container .row .col .founder_image2{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    background-image: url(https://assets-global.website-files.com/65e63f08ee88b5d3840387d6/65e64a3879a5c7b08b117d5b_Alex.jpg);
+    background-position: center;
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    border-radius: 100%;
+  }
+
+  .asdef .founder_container .row .col .founder_image3{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    background-image: url(https://assets-global.website-files.com/65e63f08ee88b5d3840387d6/65e64a3879a5c7b08b117d5b_Alex.jpg);
+    background-position: center;
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    border-radius: 100%;
+  }
+  
+  
