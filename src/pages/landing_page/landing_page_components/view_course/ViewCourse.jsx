@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { FaArrowRight } from "react-icons/fa";
 import './ViewCourse.css'
 
 const ViewCourse = () => {
@@ -8,7 +9,7 @@ const ViewCourse = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get('http://localhost:5000/data');
+      const res = await axios.get('https://keyringproject-data.onrender.com/data');
       console.log(res.data)
       setArticleData(res.data)
     }
@@ -20,7 +21,11 @@ const ViewCourse = () => {
   return (
     <div className='asdef'>
       <div className="course_container">
-        <h2>CHECK OUT ARTICLES</h2>
+        <div className="course_title">
+          <h3>CHECK OUT ARTICLES</h3>
+          <span className='arrow_display'><FaArrowRight /></span>
+        </div>
+
         <div className='row'>
           {articleData.slice(0, 3).map((items, index) => {
             return <>
@@ -39,6 +44,7 @@ const ViewCourse = () => {
                           <button>Get Started</button>
                         </Link>
                       </div>
+
                     </div>
 
                   ) : (

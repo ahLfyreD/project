@@ -29,7 +29,7 @@
 @media (max-width: 790px) {
   .asde {
     background-image: url(https://assets-global.website-files.com/65df8e71bab45b70f5433fba/65eb8c32d64b2a9d9cb33b8e_Frame%2048095923.jpg);
-    height: 400px;
+    height: 500px;
     padding: 5px 15px;
     display: flex;
     position: relative;
@@ -43,7 +43,7 @@
   }
   
   .asde .text_container h1 {
-    font-size: 2rem;
+    font-size: 64px;
   }
   
   .asde .text_container h2 {
@@ -59,7 +59,7 @@
 @media (max-width: 450px) {
   .asde {
     background-image: url(https://assets-global.website-files.com/65df8e71bab45b70f5433fba/65eb8c32d64b2a9d9cb33b8e_Frame%2048095923.jpg);
-    height: 350px;
+    height: 470px;
     padding: 5px 15px;
     display: flex;
     position: relative;
@@ -73,14 +73,14 @@
   }
   
   .asde .text_container h1 {
-    font-size: 1.2rem;
+    font-size: 44px;
   }
   
   .asde .text_container h2 {
     position: absolute;
     bottom: 0;
     right: 0;
-    font-size: 1rem;
+    font-size: 22px;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 0.7px;
   }

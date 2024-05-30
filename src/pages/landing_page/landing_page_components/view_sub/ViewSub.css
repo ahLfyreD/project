@@ -1,58 +1,67 @@
-.asderfg{
-    position: relative;
-    height: 400px;
-    padding: 10px 30px;
-    display: flex;
-    background: white;
+.asderfg {
+  position: relative;
+  height: 400px;
+  padding: 10px 30px;
+  display: flex;
+  background: white;
 }
 
-.asderfg .sub_container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 100rem;
-    margin: 0 auto;
+.asderfg .sub_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100rem;
+  margin: 0 auto;
 }
-.asderfg .sub_container .text_content{
-    display: flex;
-    align-items: center;
-}
-
-.form_shell {  
-    display: flex;
-    align-items: center;
-  }
-
-.form_shell input{
-    flex: 1;
-    border: 1px solid #9e9ea8;
-    border-radius: 4px;
-    height: 34px;
-    font-size: large;
-    letter-spacing: 2px;
-    padding: 2px 4px;
-    margin-right: 10px;
+.asderfg .sub_container .text_content {
+  display: flex;
+  align-items: center;
 }
 
-.check_box{
-    display: flex;
-    /* align-items: center; */
+.form_shell {
+  display: flex;
+  align-items: center;
+}
+
+.form_shell input {
+  flex: 1;
+  border: 1px solid #9e9ea8;
+  border-radius: 4px;
+  height: 34px;
+  font-size: large;
+  letter-spacing: 2px;
+  padding: 2px 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.check_box {
+  display: flex;
+  /* align-items: center; */
 }
 
 @media (max-width: 450px) {
-    .asderfg{
-        position: relative;
-        height: 250px;
-        padding: 10px 30px;
-        display: flex;
-        background: white;
-    }
+  .asderfg {
+    position: relative;
+    height: 250px;
+    padding: 10px 30px;
+    display: flex;
+    background: white;
+  }
 
-    .asderfg .sub_container .text_content h2{
-        font-size: 0.9rem;
-    }
-    .check_box p {
-        font-size: 0.7rem;
-    }
+  .asderfg .sub_container .text_content h2 {
+    font-size: 0.9rem;
+  }
+
+  .form_shell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .check_box p {
+    font-size: 0.7rem;
+  }
 }
