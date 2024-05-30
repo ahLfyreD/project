@@ -8,19 +8,70 @@ import './CourseContentPage.css'
 
 const CourseContentPage = () => {
     const [articleData, setArticleData] = useState([]);
-    const [title, setTitle] = useState('');
+    const [titleName, setTitleName] = useState('');
+    const [courseData, setCourseData] = useState([]);
+    const [gotToNextPage, setGoToNextPage] = useState([])
+    const [gotToPrevPage, setGoToPrevPage] = useState(false)
 
-    const { id } = useParams()
+    const { dataId } = useParams()
 
     useEffect(() => {
         const fetchData = async () => {
-            const { data } = await axios.get(`https://keyringproject-data.onrender.com/data/${id}`);
-            setTitle(data.title)
+
+            const { data } = await axios.get('https://keyringproject-data.onrender.com/data');
+
+            const courseAccess = data.filter(data => data.status === "publish");
+            setCourseData(courseAccess)
+
+        }
+
+        fetchData();
+    }, [])
+
+    useEffect(() => {
+        const nextPage = (id, myArray) => {
+            const currentIndex = myArray.findIndex(d => d.id === id)
+
+            if (currentIndex === -1 || currentIndex === myArray.length - 1) {
+                return null
+            }
+
+            const nextElement = myArray[currentIndex + 1];
+
+            if (!nextElement) {
+                return null
+            }
+            return nextElement;
+        }
+
+        const nextResult = nextPage(parseInt(dataId), courseData)
+        setGoToNextPage(nextResult)
+
+        const PrevPage = (id, myArray) => {
+            const currentIndex = myArray.findIndex(d => d.id === id)
+
+            if (currentIndex <= 0 || currentIndex >= myArray.length) {
+                return null
+            }
+
+            return myArray[currentIndex - 1];
+
+        }
+        const prevResult = PrevPage(parseInt(dataId), courseData)
+        setGoToPrevPage(prevResult)
+    }, [])
+
+    console.log(gotToNextPage)
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const { data } = await axios.get(`https://keyringproject-data.onrender.com/data/${dataId}`);
+            setTitleName(data.title)
             setArticleData(data.content)
         }
         fetchData();
     }, [])
-
 
 
 
@@ -29,6 +80,9 @@ const CourseContentPage = () => {
         console.log(mainSection)
         document.querySelector(".course").appendChild(mainSection);
     }, [articleData]);
+
+
+
 
 
     return (
@@ -42,12 +96,35 @@ const CourseContentPage = () => {
                     </span>
                     &gt;
                     <span>
-                        {title}
+                        {titleName}
                     </span>
                 </div>
                 <div className='course_content'>
                     <div style={{ flex: 1 }}>
                         <div className="course"></div>
+                        <div className='prev-next'>
+                            {gotToPrevPage ? (
+                                <div className='pager'>
+                                    <Link to={`/course/${gotToPrevPage.id}`}>
+                                        <p>Previous Page</p>
+                                        <p>{gotToPrevPage.title}</p>
+                                    </Link>
+                                </div>
+                            ) : (
+                                <></>
+                            )}
+
+                            {gotToNextPage ? (
+                                <div className='pager'>
+                                    <Link to={`/course/${gotToNextPage.id}`}>
+                                        <p>Next Page</p>
+                                        <p>{gotToNextPage.title}</p>
+                                    </Link>
+                                </div>
+                            ) : (
+                                <></>
+                            )}
+                        </div>
                     </div>
                     <div className='aside'>
                         <div className="aside_container">
@@ -63,7 +140,7 @@ const CourseContentPage = () => {
                                 })
                             }}
                             >
-                                {articleData.map((items, index) => {
+                                {articleData && articleData.map((items, index) => {
                                     return <li key={index}>
                                         <a href={`#${items.href}`}>
                                             {items.subtitle}
@@ -74,7 +151,6 @@ const CourseContentPage = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     )

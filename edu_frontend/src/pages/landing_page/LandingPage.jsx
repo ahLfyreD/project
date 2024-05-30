@@ -24,7 +24,7 @@ const LandingPage = () => {
                     <ViewImage />
                     <ViewCourse />
                     <ViewNews />
-                    <ViewFounder />
+                    {/* <ViewFounder /> */}
                     <ViewSub />
                 </div>
             </div>

@@ -64,3 +64,29 @@
 .aside .aside_container ul li{
     margin-bottom: 10px;
 }
+
+.prev-next {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 2px solid #e6e6e6;
+}
+
+.pager {
+    width: 300px;    
+    height: 60px;
+    display: flex;
+    
+}
+
+.pager Link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: col;
+    justify-content: end;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    padding: 11px 16px 13px;
+    transition: border-color .25s;
+}

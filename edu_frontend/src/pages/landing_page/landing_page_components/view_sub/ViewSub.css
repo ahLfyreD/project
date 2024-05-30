@@ -39,3 +39,20 @@
     display: flex;
     /* align-items: center; */
 }
+
+@media (max-width: 450px) {
+    .asderfg{
+        position: relative;
+        height: 250px;
+        padding: 10px 30px;
+        display: flex;
+        background: white;
+    }
+
+    .asderfg .sub_container .text_content h2{
+        font-size: 0.9rem;
+    }
+    .check_box p {
+        font-size: 0.7rem;
+    }
+}

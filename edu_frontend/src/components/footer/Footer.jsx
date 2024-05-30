@@ -15,7 +15,9 @@ const Footer = () => {
         </div>
         <div className='footer_copyright_container'>
           <div className='footer_copyright'>
-            © 2024 Keyring Network. All right reserved.
+            <div>
+              © 2024 Keyring Network. All right reserved.
+            </div>
             <div className='footer_policy'>
               <a href="">Privacy Policy</a>
               <a href="">Terms of Service</a>

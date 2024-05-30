@@ -1,29 +1,10 @@
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+
 
 import './CoursePage.css'
 
-const CoursePage = () => {
-  const [courseData, setCourseData] = useState([]);
-  const [access, setAccess] = useState('')
-
-
-  useEffect(() => {
-    const fetchData = async () => {
-      
-      const { data } = await axios.get('https://keyringproject-data.onrender.com/data');
-      setCourseData(data)
-
-      const courseAccess = data.filter(data => data.status === "publish")
-      setAccess(courseAccess.length)
-
-    }
-
-    fetchData();
-  }, [])
-
-
+const CoursePage = ({ courseData, access }) => {
+ 
   return (
     <div className='course_page_container'>
       <div className="course_page_content">

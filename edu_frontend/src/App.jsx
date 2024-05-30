@@ -1,5 +1,6 @@
-import { Suspense } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import axios from 'axios'
 
 import LandingPage from './pages/landing_page/LandingPage';
 import Home from './pages/home_page/Home';
@@ -11,6 +12,23 @@ import './App.css';
 
 
 function App() {
+  const [courseData, setCourseData] = useState([]);
+  const [access, setAccess] = useState('')
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+
+      const { data } = await axios.get('https://keyringproject-data.onrender.com/data');
+      setCourseData(data);
+
+      const courseAccess = data.filter(data => data.status === "publish");
+      setAccess(courseAccess.length);
+
+    }
+
+    fetchData();
+  }, [])
 
   return (
     <Suspense>
@@ -19,8 +37,13 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} >
             <Route path="/" element={<LandingPage />} />
-            <Route path="/courses" element={<CoursePage />} />
-            <Route path="/course/:id" element={<CourseContentPage />} />
+            <Route path="/courses" element={
+              <CoursePage
+                courseData={courseData}
+                access={access}
+              />
+            } />
+            <Route path="/course/:dataId" element={<CourseContentPage />} />
           </Route>
         </Routes>
       </Router>

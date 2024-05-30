@@ -38,3 +38,15 @@
 .asderf .landing_Page_news_container .row .text_block h1 span:hover{
   color: #2ee297;
 }
+
+@media (max-width: 770px) {
+  .asderf .landing_Page_news_container .row .text_block h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .asderf .landing_Page_news_container .row .text_block h1 {
+    font-size: 0.9rem;
+  }
+}

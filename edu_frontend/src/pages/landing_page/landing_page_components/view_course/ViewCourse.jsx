@@ -27,7 +27,7 @@ const ViewCourse = () => {
               {
                 items.status === 'publish' ?
                   (
-                    <div className="col">
+                    <div className="col" key={items.id}>
                       <div className='col_title'>
                         <h3>{items.title}</h3>
                       </div>
@@ -42,7 +42,7 @@ const ViewCourse = () => {
                     </div>
 
                   ) : (
-                    <div className="col">
+                    <div className="col" key={items.id}>
                       <div className='col_title'>
                         <h3>{items.title}</h3>
                       </div>
