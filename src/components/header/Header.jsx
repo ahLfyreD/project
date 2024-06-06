@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom'
 import mainLogo from '../../assets/mainLogo.svg'
-import mainLogo2 from '../../assets/mainLogoTwo.svg'
-import Search from './header_components/Search'
-import Mode from './header_components/Mode'
-import ContactLink from './header_components/ContactLink'
+import SiteButton from './header_components/SiteButton'
 
 import './Header.css'
-import RegisterButton from './header_components/RegisterButton'
+
 
 
 const Header = () => {
@@ -19,7 +16,7 @@ const Header = () => {
                     </Link>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center' }}>                   
-                    <RegisterButton />
+                    <SiteButton />
                 </div>
             </div>
         </div>

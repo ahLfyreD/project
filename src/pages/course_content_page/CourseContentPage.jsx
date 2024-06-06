@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams, Link } from 'react-router-dom'
 import { ParseData } from '../../hooks/useParseData'
+import Loading from "../../components/loading/Loading"
 
 import './CourseContentPage.css'
 
@@ -28,40 +29,40 @@ const CourseContentPage = () => {
         fetchData();
     }, [])
 
-    useEffect(() => {
-        const nextPage = (id, myArray) => {
-            const currentIndex = myArray.findIndex(d => d.id === id)
+    // useEffect(() => {
+    //     const nextPage = (id, myArray) => {
+    //         const currentIndex = myArray.findIndex(d => d.id === id)
 
-            if (currentIndex === -1 || currentIndex === myArray.length - 1) {
-                return null
-            }
+    //         if (currentIndex === -1 || currentIndex === myArray.length - 1) {
+    //             return null
+    //         }
 
-            const nextElement = myArray[currentIndex + 1];
+    //         const nextElement = myArray[currentIndex + 1];
 
-            if (!nextElement) {
-                return null
-            }
-            return nextElement;
-        }
+    //         if (!nextElement) {
+    //             return null
+    //         }
+    //         return nextElement;
+    //     }
 
-        const nextResult = nextPage(parseInt(dataId), courseData)
-        setGoToNextPage(nextResult)
+    //     const nextResult = nextPage(parseInt(dataId), courseData)
+    //     setGoToNextPage(nextResult)
 
-        const PrevPage = (id, myArray) => {
-            const currentIndex = myArray.findIndex(d => d.id === id)
+    //     const PrevPage = (id, myArray) => {
+    //         const currentIndex = myArray.findIndex(d => d.id === id)
 
-            if (currentIndex <= 0 || currentIndex >= myArray.length) {
-                return null
-            }
+    //         if (currentIndex <= 0 || currentIndex >= myArray.length) {
+    //             return null
+    //         }
 
-            return myArray[currentIndex - 1];
+    //         return myArray[currentIndex - 1];
 
-        }
-        const prevResult = PrevPage(parseInt(dataId), courseData)
-        setGoToPrevPage(prevResult)
-    }, [])
+    //     }
+    //     const prevResult = PrevPage(parseInt(dataId), courseData)
+    //     setGoToPrevPage(prevResult)
+    // }, [])
 
-    console.log(gotToNextPage)
+    // console.log(gotToNextPage)
 
 
     useEffect(() => {
@@ -74,11 +75,13 @@ const CourseContentPage = () => {
     }, [])
 
 
-
     useEffect(() => {
         const mainSection = ParseData([articleData]);
-        console.log(mainSection)
-        document.querySelector(".course").appendChild(mainSection);
+        // console.log(mainSection)
+        var element = document.querySelector(".course");
+        if (element) {
+            element.appendChild(mainSection)
+        }
     }, [articleData]);
 
 
@@ -87,71 +90,77 @@ const CourseContentPage = () => {
 
     return (
         <div>
-            <div className='course_content_container'>
-                <div className='title_header'>
-                    <span>
-                        <Link to='/courses'>
-                            All Articles
-                        </Link>
-                    </span>
-                    &gt;
-                    <span>
-                        {titleName}
-                    </span>
+            {Object.keys(articleData).length === 0 ? (
+                <div style={{ display: 'flex', height: 'calc(100vh - 60px)', justifyContent: "center", alignItems: 'center' }}>
+                    <Loading />
                 </div>
-                <div className='course_content'>
-                    <div style={{ flex: 1 }}>
-                        <div className="course"></div>
-                        <div className='prev-next'>
-                            {gotToPrevPage ? (
-                                <div className='pager'>
-                                    <Link to={`/course/${gotToPrevPage.id}`}>
-                                        <p>Previous Page</p>
-                                        <p>{gotToPrevPage.title}</p>
-                                    </Link>
-                                </div>
-                            ) : (
-                                <></>
-                            )}
+            ) : (
+                <div className='course_content_container'>
+                    <div className='title_header'>
+                        <span>
+                            <Link to='/courses'>
+                                All Articles
+                            </Link>
+                        </span>
+                        &gt;
+                        <span>
+                            {titleName}
+                        </span>
+                    </div>
+                    <div className='course_content'>
+                        <div style={{ flex: 1 }}>
+                            <div className="course"></div>
+                            {/* <div className='prev-next'>
+                                {gotToPrevPage ? (
+                                    <div className='pager'>
+                                        <Link to={`/course/${gotToPrevPage.id}`}>
+                                            <p>Previous Page</p>
+                                            <p>{gotToPrevPage.title}</p>
+                                        </Link>
+                                    </div>
+                                ) : (
+                                    <></>
+                                )}
 
-                            {gotToNextPage ? (
-                                <div className='pager'>
-                                    <Link to={`/course/${gotToNextPage.id}`}>
-                                        <p>Next Page</p>
-                                        <p>{gotToNextPage.title}</p>
-                                    </Link>
-                                </div>
-                            ) : (
-                                <></>
-                            )}
+                                {gotToNextPage ? (
+                                    <div className='pager'>
+                                        <Link to={`/course/${gotToNextPage.id}`}>
+                                            <p>Next Page</p>
+                                            <p>{gotToNextPage.title}</p>
+                                        </Link>
+                                    </div>
+                                ) : (
+                                    <></>
+                                )}
+                            </div> */}
                         </div>
-                    </div>
-                    <div className='aside'>
-                        <div className="aside_container">
-                            <span>On this page</span>
-                            <ul onClick={(event) => {
-                                event.preventDefault();
-                                const target = event.target;
-                                const id = target.getAttribute('href').replace('#', '')
-                                const element = document.getElementById(id)
-                                element?.scrollIntoView({
-                                    block: 'center',
-                                    behavior: 'smooth'
-                                })
-                            }}
-                            >
-                                {articleData && articleData.map((items, index) => {
-                                    return <li key={index}>
-                                        <a href={`#${items.href}`}>
-                                            {items.subtitle}
-                                        </a>
-                                    </li>
-                                })}
-                            </ul>
+                        <div className='aside'>
+                            <div className="aside_container">
+                                <span>On this page</span>
+                                <ul onClick={(event) => {
+                                    event.preventDefault();
+                                    const target = event.target;
+                                    const id = target.getAttribute('href').replace('#', '')
+                                    const element = document.getElementById(id)
+                                    element?.scrollIntoView({
+                                        block: 'center',
+                                        behavior: 'smooth'
+                                    })
+                                }}
+                                >
+                                    {articleData && articleData.map((items, index) => {
+                                        return <li key={index}>
+                                            <a href={`#${items.href}`}>
+                                                {items.subtitle}
+                                            </a>
+                                        </li>
+                                    })}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            )}
         </div>
     )
 }

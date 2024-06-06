@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
 
-
-const RegisterButton = () => {
+const SiteButton = () => {
   return (
     <div className="reg_btn">
       <a href='https://keyring.network/'>
@@ -11,4 +9,4 @@ const RegisterButton = () => {
   )
 }
 
-export default RegisterButton
+export default SiteButton
